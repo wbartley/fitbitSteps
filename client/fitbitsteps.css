@@ -1,0 +1,59 @@
+/* To push content below navbar */
+@media (min-width: 980px) {
+  body {
+    margin-top: 41px;
+  }
+}
+
+.table th {
+   text-align: center;   
+}
+
+.table td {
+   text-align: center;   
+}
+
+.row-fluid {
+margin-left: -20px;
+*zoom: 1;
+
+margin-top: 10px;
+}
+
+#utilities {
+	float: right;
+	right: 8px;
+}
+
+ul {
+    list-style: none;
+}
+
+html, body {
+    height: 100%;
+}
+
+
+body {
+    font-size: 16px;
+    background: #eeeeee;
+    color: #333333;
+}
+
+
+
+body, input {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+input {
+    font-size: 100%;
+}
+
+a, a:visited, a:active {
+    color: #258;
+}
+
+
+
+

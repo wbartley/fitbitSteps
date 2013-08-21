@@ -1,0 +1,104 @@
+<head>
+  <meta charset="utf-8">
+  <title>Fitbit Steps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+</head>
+<body>
+<div class="navbar navbar navbar-fixed-top">
+	<div class="navbar-inner">
+        <div id="utilities">
+			<ul class="utility_list">
+				<li class="signin utility_link">{{loginButtons align="right"}}</li>
+			</ul>
+		</div>
+		<div class="container">
+			<button type="button" class="btn btn-navbar collapsed" data-toggle="collapse"
+			data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="brand" href="#">Fitbit Steps</a>
+			<div class="nav-collapse collapse" style="height: 0px;">
+				<ul class="nav">
+					<li>
+						<a href="#about">About</a>
+					</li>
+					<li>
+						<a href="#contact">Contact</a>
+					</li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+</div>
+<div class="container">
+	{{#if currentUser}}
+		{{>steps}}
+	{{else}}
+		{{> homecontent}}			
+	{{/if}}
+
+</div>
+</body>
+
+<template name="steps">
+	<div class="row-fluid">
+        	<h3>Hello {{currentUser.profile.fullName}} 
+				<img src="{{currentUser.profile.avatar}}" class="img-rounded" style="width:50px" />
+			</h3>
+        	<a class='btn mySteps'>Get Steps</a>
+	</div>
+		
+	{{#if hasSteps}}
+		{{>activitiesStepsTable}}
+	{{/if}}
+</template>
+
+<template name="homecontent">
+	<div class="row-fluid">
+		<div class="well">
+			<p>
+				This is an example of using Meteor to access the Fitbit API. It will get your last 7 days of steps. 
+			</p>
+			<p>
+				Click "Sign in with Fitbit" to start.
+			</p>
+		</div>
+     	
+		</div>
+	</div>
+</template>
+
+<template name ="activitiesStepsTable" >
+	<div class="row-fluid">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>
+						Date
+					</th>
+					<th>
+						Steps
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{# each activitiesSteps}} 
+				<tr>
+					<td>
+						{{dateTime}} 
+					</td>
+					<td>
+						{{value}} 
+					</td>
+				</tr>
+				{{/ each}} 
+			</tbody>
+		</table> 
+	</div>
+</template >
+<!-- /container -->
